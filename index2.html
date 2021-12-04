@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Normandy</title>
+    <style></style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button>Send</button>
+    </form>
+
+    <script>
+      var socket = new WebSocket("ws://localhost:3000");
+
+      socket.onopen = function () {
+        console.log("Соединение установлено.");
+      };
+
+      socket.onclose = async function (event) {
+        if (event.wasClean) {
+          console.log("Соединение закрыто чисто");
+        } else {
+          console.log("Обрыв соединения");
+        }
+        console.log("Код: " + event.code + " причина: " + event.reason);
+      };
+
+      socket.onmessage = async function (event) {
+        let data = await event.data.text();
+        console.log(JSON.parse(data));
+      };
+
+      socket.onerror = function (error) {
+        console.log("Ошибка " + error.message);
+      };
+    </script>
+  </body>
+</html>
