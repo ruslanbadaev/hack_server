@@ -68191,8 +68191,8 @@ which can be placed in CurveUtils.
 
     socket.onmessage = async function (event) {
       let data = await event.data.text();
-      console.log(event.data + "");
-      keyMap[event.data + ""] = true;
+      console.log(data.toString());
+      keyMap[data.toString()] = true;
     };
 
     const onDocumentKey = (e) => {

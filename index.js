@@ -32,16 +32,9 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/dist/bundle.main.js");
-});
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/bundle.main.js");
-});
-
 webSocketServer.on("connection", (ws) => {
   ws.on("message", (m) => {
-    console.log(m);
+    console.log(m.toString());
     ws.send(m.buffer);
     webSocketServer.clients.forEach((client) => {
       client.send(m);
