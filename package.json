@@ -15,5 +15,16 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.3",
     "babel-preset-es2015": "^6.24.1"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruslanbadaev/hack_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruslanbadaev/hack_server/issues"
+  },
+  "homepage": "https://github.com/ruslanbadaev/hack_server#readme"
 }
