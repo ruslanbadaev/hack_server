@@ -68190,13 +68190,15 @@ which can be placed in CurveUtils.
     const cubeMapPath = "./cubeMap/";
 
     socket.onmessage = async function (event) {
-      let data = event.data;
-      console.log(data);
-      keyMap[e.key] = e.type === data;
+      let data = await event.data.text();
+      console.log(data.toString());
+      keyMap[data.toString()] = true;
     };
 
     const onDocumentKey = (e) => {
+      console.log(e);
       console.log(e.key);
+      console.log(e.type);
       keyMap[e.key] = e.type === "keydown";
     };
 
