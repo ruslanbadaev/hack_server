@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 
 webSocketServer.on("connection", (ws) => {
   ws.on("message", (m) => {
-    console.log(JSON.parse(m.toString()));
+    console.log(m);
     ws.send(m.buffer);
     webSocketServer.clients.forEach((client) => {
       client.send(m);
