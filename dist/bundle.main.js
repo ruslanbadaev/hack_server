@@ -68164,8 +68164,6 @@ which can be placed in CurveUtils.
       console.log("Код: " + event.code + " причина: " + event.reason);
     };
 
-
-
     socket.onerror = function (error) {
       console.log("Ошибка " + error.message);
     };
@@ -68192,8 +68190,8 @@ which can be placed in CurveUtils.
     const cubeMapPath = "./cubeMap/";
 
     socket.onmessage = async function (event) {
-      let data = await event.data.text();
-      console.log(JSON.parse(data));
+      let data = event.data;
+      console.log(data);
       keyMap[e.key] = e.type === data;
     };
 
